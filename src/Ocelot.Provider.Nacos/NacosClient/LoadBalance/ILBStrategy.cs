@@ -1,6 +1,6 @@
 ﻿using Nacos;
 using System.Collections.Generic;
-
+using Nacos.V2.Naming.Dtos;
 namespace Ocelot.Provider.Nacos.NacosClient
 {
     public interface ILBStrategy
@@ -15,6 +15,6 @@ namespace Ocelot.Provider.Nacos.NacosClient
         /// </summary>
         /// <param name="list">host list</param>
         /// <returns>The Host</returns>
-        Host GetHost(List<Host> list);
+        Instance GetHost(List<Instance> list);
     }
 }

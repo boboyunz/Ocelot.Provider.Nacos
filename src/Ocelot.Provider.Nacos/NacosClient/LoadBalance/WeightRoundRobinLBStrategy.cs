@@ -1,7 +1,7 @@
 ﻿using Nacos;
 using System.Collections.Generic;
 using System.Linq;
-
+using Nacos.V2.Naming.Dtos;
 namespace Ocelot.Provider.Nacos.NacosClient
 {
     public class WeightRoundRobinLBStrategy : ILBStrategy
@@ -12,7 +12,7 @@ namespace Ocelot.Provider.Nacos.NacosClient
 
         private static object obj = new object();
 
-        public Host GetHost(List<Host> list)
+        public Instance GetHost(List<Instance> list)
         {
             // aliyun sae, the instanceid returns empty string
             // when the instanceid is empty, create a new one, but the group was missed.

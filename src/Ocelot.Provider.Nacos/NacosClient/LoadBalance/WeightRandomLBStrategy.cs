@@ -2,18 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using Nacos.V2.Naming.Dtos;
 namespace Ocelot.Provider.Nacos.NacosClient
 {
     public class WeightRandomLBStrategy : ILBStrategy
     {
         public LBStrategyName Name => LBStrategyName.WeightRandom;
 
-        public Host GetHost(List<Host> list)
+        public Instance GetHost(List<Instance> list)
         {
             var dict = BuildScore(list);
 
-            Host instance = null;
+            Instance instance = null;
 
             var rd = new Random().NextDouble();
 
@@ -40,7 +40,7 @@ namespace Ocelot.Provider.Nacos.NacosClient
             return instance;
         }
 
-        private Dictionary<string, double> BuildScore(List<Host> list)
+        private Dictionary<string, double> BuildScore(List<Instance> list)
         {
             var dict = new Dictionary<string, double>();
 
